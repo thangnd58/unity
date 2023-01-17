@@ -6,25 +6,30 @@ public class BallGenerator : MonoBehaviour
 {
 
     [SerializeField]
-    GameObject teddyPerfab;
+    GameObject ballPerfab;
 
     Timer timer;
+
+
+
+    public Vector3 pos;
+    public float timeGenerateBall;
 
     // Start is called before the first frame update
     void Start()
     {
         timer = GetComponent<Timer>();
-        timer.interval= 2;
-        timer.Start();
-
+        timer.interval= timeGenerateBall;
+        timer.Run();
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (!timer.running)
+        if (!timer.isFinished())
         {
-            Instantiate(teddyPerfab, new Vector3(0, 0, 0), Quaternion.identity);
+            Instantiate<GameObject>(ballPerfab, pos, Quaternion.identity);
         }
     }
 }

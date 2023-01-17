@@ -9,9 +9,9 @@ public class Timer : MonoBehaviour
 
     // timer execution
     float elapsedSeconds = 0;
-    public bool running = false;
+    bool running = false;
 
-    public void Start()
+    public void Run()
     {
         elapsedSeconds = 0;
         running = true;
@@ -29,5 +29,10 @@ public class Timer : MonoBehaviour
             running = true;
             elapsedSeconds += Time.deltaTime;
         }
+    }
+
+    public bool isFinished()
+    {
+        return running;
     }
 }

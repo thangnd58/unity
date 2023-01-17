@@ -4,7 +4,7 @@ MonoImporter:
   externalObjects: {}
   serializedVersion: 2
   defaultReferences:
-  - teddyPerfab: {fileID: 8316497849943347392, guid: 24b0387a911d85249b422c9bc099d54f, type: 3}
+  - teddyPerfab: {fileID: 7934953908283411986, guid: 24b0387a911d85249b422c9bc099d54f, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
