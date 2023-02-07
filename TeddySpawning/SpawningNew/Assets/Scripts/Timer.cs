@@ -33,6 +33,6 @@ public class Timer : MonoBehaviour
 
     public bool isFinished()
     {
-        return running;
+        return !running;
     }
 }

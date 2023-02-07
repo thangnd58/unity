@@ -1,27 +1,24 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEditor.PlayerSettings;
 
-public class BallGenerator : MonoBehaviour
+public class RandomWalkerGenrator : MonoBehaviour
 {
-
     [SerializeField]
-    GameObject ballPerfab;
+    GameObject walkerPrefab;
 
     Timer timer;
 
+    public float timeGenerateWalker;
 
-
-    public Vector3 pos;
-    public float timeGenerateBall;
 
     // Start is called before the first frame update
     void Start()
     {
         timer = GetComponent<Timer>();
-        timer.interval= timeGenerateBall;
+        timer.interval = timeGenerateWalker;
         timer.Run();
-        
     }
 
     // Update is called once per frame
@@ -29,7 +26,7 @@ public class BallGenerator : MonoBehaviour
     {
         if (timer.isFinished())
         {
-            Instantiate<GameObject>(ballPerfab, pos, Quaternion.identity);
+            Instantiate<GameObject>(walkerPrefab, Vector2.zero, Quaternion.identity);
         }
     }
 }
