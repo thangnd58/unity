@@ -34,7 +34,7 @@ public class GunKillScript : MonoBehaviour
 
             transform.RotateAround(pivot, vector, 0.3f);
         }
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.W))
         {
             Shoot();
         }

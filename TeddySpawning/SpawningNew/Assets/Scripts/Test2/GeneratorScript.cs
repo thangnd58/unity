@@ -7,13 +7,17 @@ public class GeneratorScript : MonoBehaviour
     [SerializeField]
     public GameObject generatorPrefab;
 
+    int health;
+
+    public static Dictionary<int, GameObject> listSaveLoad = new Dictionary<int, GameObject>();
+
     Timer timer;
 
     // Start is called before the first frame update
     void Start()
     {
         timer = GetComponent<Timer>();
-        timer.interval = 1;
+        timer.interval = 10;
         timer.Run();
     }
 
@@ -22,7 +26,15 @@ public class GeneratorScript : MonoBehaviour
     {
         if (timer.isFinished())
         {
-            Instantiate<GameObject>(generatorPrefab, Vector2.zero, Quaternion.identity);
+            health = Random.Range(1, 4);
+            generatorPrefab.transform.localScale = new Vector3(health, health, 1);
+            float posX = Random.Range(-Camera.main.orthographicSize * Screen.width / Screen.height,
+                               Camera.main.orthographicSize * Screen.width / Screen.height);
+            float posY = Random.Range(-Camera.main.orthographicSize, Camera.main.orthographicSize);
+            generatorPrefab.transform.position = new Vector2(posX, posY);
+            GameObject o =  Instantiate<GameObject>(generatorPrefab, generatorPrefab.transform.position, Quaternion.identity);
+            o.GetInstanceID();
+            listSaveLoad.Add(o.GetInstanceID(), o);
         }
     }
 }
